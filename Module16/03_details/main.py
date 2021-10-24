@@ -5,10 +5,12 @@ shop = [['каретка', 1200], ['шатун', 1000], ['седло', 300],
 while True:
         detail = input("Название детали: ")
         count = int(input("Кол-во деталей: "))
-        num = 0
         summ = 0
         for i in range(len(shop)):
                 if shop[i][0] == detail:
                         summ += shop[i][1]
-                        num += 1
-        print("Общая стоимость: ", count * summ/num)
+                        count -= 1
+                        if count == 0:
+                                break
+        print("Общая стоимость: ", summ)
+        print()
