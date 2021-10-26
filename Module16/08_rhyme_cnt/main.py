@@ -6,7 +6,7 @@ def countdown(N, K):
         if start > len(list_humans) - 1:
             start = 0
         print("Начало счёта с номера", list_humans[start])
-        index = start + (7 % len(list_humans)) -1
+        index = ((start + K) % len(list_humans)) -1
         print("Выбывает человек под номером", list_humans[index])
         list_humans.remove(list_humans[index])
         start = index
