@@ -10,7 +10,7 @@ def create_humans(count):
         list_humans.append(int(input("Размер ноги " + str(i + 1) + " человека: ")))
     return list_humans
 
-def check_count():
+def check_count(humans, skates):
     max_humans = 0
     for i in humans:
         check_humans = min(humans.count(i), skates.count(i))
@@ -21,4 +21,4 @@ def check_count():
 
 skates = create_skates(int(input("Кол-во коньков: ")))
 humans = create_humans(int(input("\nКол-во людей: ")))
-check_count()
+check_count(humans, skates)
