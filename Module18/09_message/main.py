@@ -20,4 +20,4 @@ print(msg)
 for j in range(len(msg)):
   msg[j] = change_word(msg[j])
 
-print(msg)
+print(" ".join(msg))
