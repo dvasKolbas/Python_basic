@@ -14,9 +14,7 @@ def check_num(p, num):
   return True
 
 def check_lenth(p):
-  if len(p) >= 7:
-    return False
-  return True
+  return len(p) < 7
 
 cont = True
 num = "1234567890"
