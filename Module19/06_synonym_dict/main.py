@@ -13,7 +13,7 @@ def create_dict(synonyms, count):
         synonyms[syn_list[1]] = syn_list[0]
     return synonyms
 
-count = int(input("Dедите количество пар слов: "))
+count = int(input("Ведите количество пар слов: "))
 synonyms = create_dict(dict(), count)
 print()
 find_word(synonyms)
