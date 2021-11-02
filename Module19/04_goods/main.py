@@ -1,3 +1,12 @@
+def check_store(store):
+    count = summ = 0
+    for g in store:
+       count += g.get("quantity")
+       summ += g.get("quantity") * g.get("price")
+
+    return count, summ
+
+
 goods = {
     'Лампа': '12345',
     'Стол': '23456',
@@ -24,4 +33,6 @@ store = {
     ],
 }
 
-# TODO здесь писать код
+for i in goods:
+    count, summ = check_store(store[goods.get(i)])
+    print(f"{i} - {count}шт, стоимость {summ} руб")
