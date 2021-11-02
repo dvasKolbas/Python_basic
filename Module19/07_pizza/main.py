@@ -18,4 +18,5 @@ def print_dict(orders):
             print("\t" + order +": "+ str(orders[client][order]))
 
 #list1 = ["Иванов Пепперони 1", "Петров Де-Люкс 2", "Иванов Мясная 3", "Иванов Мексиканская 2", "Иванов Пепперони 2", "Петров Интересная 5"]
-create_dict(6)
+count = int(input("Введите кол-во заказов: "))
+create_dict(count)
