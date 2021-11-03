@@ -3,7 +3,7 @@ students = {
         'name': 'Bob',
         'surname': 'Vazovski',
         'age': 23,
-        'interests': ['biology, swimming']
+        'interests': ['biology', 'swimming']
     },
     2: {
         'name': 'Rob',
@@ -23,22 +23,28 @@ students = {
 def f(dict):
     lst = []
     string = ''
-    for i in dict:
-        lst += (dict[i]['interests'])
-        string += dict[i]['surname']
-    cnt = 0
-    for s in string:
-        cnt += 1
-    return lst, cnt
+    for i_id, i_info in dict.items():
+        #lst += (dict[i]['interests'])
+        if "interests" in i_info:
+            lst += (i_info["interests"])
+        if "surname" in i_info:
+            string += i_info['surname']
+    #cnt = 0
+    # for s in string:
+    #     cnt += 1
+    return lst, len(string)
 
 
-pairs = []
-for i in students:
-    pairs += (i, students[i]['age'])
+#pairs = []
+print("ID и возраст:")
+for i_id, i_info in students.items():
+    #pairs += (i, students[i]['age'])
+    if "age" in i_info:
+        print(i_id, i_info["age"])
+print()
 
-
-my_lst = f(students)[0]
-l = f(students)[1]
-print(my_lst, l)
-
+my_lst, l = f(students)
+#l = f(students)[1]
+print("Интересы:", ", ".join(my_lst))
+print("\nДлина фамилий:", l)
 # TODO исправить код
