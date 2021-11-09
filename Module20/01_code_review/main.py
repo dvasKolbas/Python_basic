@@ -20,19 +20,19 @@ students = {
 }
 
 
-def f(dict):
-    lst = []
-    string = ''
-    for i_id, i_info in dict.items():
+def find_intersts(students):
+    interests_lst = []
+    surname_lenth = ''
+    for i_id, i_info in students.items():
         #lst += (dict[i]['interests'])
         if "interests" in i_info:
-            lst += (i_info["interests"])
+            interests_lst += (i_info["interests"])
         if "surname" in i_info:
-            string += i_info['surname']
+            surname_lenth += i_info['surname']
     #cnt = 0
     # for s in string:
     #     cnt += 1
-    return lst, len(string)
+    return interests_lst, len(surname_lenth)
 
 
 #pairs = []
@@ -43,8 +43,8 @@ for i_id, i_info in students.items():
         print(i_id, i_info["age"])
 print()
 
-my_lst, l = f(students)
+interests_lst, surname_lenth = find_intersts(students)
 #l = f(students)[1]
-print("Интересы:", ", ".join(my_lst))
-print("\nДлина фамилий:", l)
+print("Интересы:", ", ".join(interests_lst))
+print("\nДлина фамилий:", surname_lenth)
 # TODO исправить код
