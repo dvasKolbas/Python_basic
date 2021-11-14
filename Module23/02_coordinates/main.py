@@ -3,7 +3,7 @@ import random
 
 def f(x, y):
     x += random.randint(0, 10)
-    y += random.randint(0, 0)
+    y += random.randint(0, 5)
     return x / y
 
 
