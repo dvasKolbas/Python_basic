@@ -1,16 +1,16 @@
-def chek_count(user):
+def check_count(user):
     if len(user) != 3:
         raise IndexError
 
-def chek_name(name):
+def check_name(name):
     if not name.isalpha():
         raise NameError
 
-def chek_email(email):
+def check_email(email):
     if not('@' in email and '.' in email):
         raise SyntaxError
 
-def chek_age(age):
+def check_age(age):
     if age.isnumeric():
         if 10 <= int(age) <= 99:
             return
@@ -25,10 +25,10 @@ with open("registrations.txt", "r") as registration:
         user = line.split()
         file = "registrations_good.log"
         try:
-            chek_count(user)
-            chek_name(user[0])
-            chek_email(user[1])
-            chek_age(user[2])
+            check_count(user)
+            check_name(user[0])
+            check_email(user[1])
+            check_age(user[2])
         except IndexError:
             print(f"В строке {num + 1}, некорректное количество полей!")
             user.append("IndexError")
