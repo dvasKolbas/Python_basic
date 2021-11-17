@@ -3,15 +3,18 @@ import random
 
 def f(x, y):
     x += random.randint(0, 10)
-    y += random.randint(0, 5)
+    y += random.randint(0, 0)
+    if y == 0:
+        raise ZeroDivisionError("блоке f")
     return x / y
 
 
 def f2(x, y):
     x -= random.randint(0, 10)
     y -= random.randint(0, 5)
+    if y == 0:
+        raise ZeroDivisionError("блоке f2")
     return y / x
-
 
 try:
     with open('coordinates.txt', 'r') as file:
@@ -25,5 +28,5 @@ try:
                 file_2.write(' '.join(str(i) for i in my_list))
 except FileNotFoundError:
     print("Файл coordinates.txt не найден!")
-except ZeroDivisionError:
-    print("Деление на 0")
+except ZeroDivisionError as e:
+    print(f"Деление на 0 в {e}")
