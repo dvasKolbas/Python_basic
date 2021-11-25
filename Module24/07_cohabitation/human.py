@@ -1,14 +1,12 @@
 import random
-import house
-
-new_house = house.House()
 
 class Human:
-    house = new_house
 
-    def __init__(self, name):
+
+    def __init__(self, name, house):
         self.name = name
         self.satiety = 50
+        self.house = house
 
     def eat(self):
         self.satiety += 20

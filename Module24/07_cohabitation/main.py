@@ -1,7 +1,9 @@
 from human import Human
+from house import House
 
-first_human = Human("Алекс")
-second_human = Human("София")
+new_house = House()
+first_human = Human("Алекс", new_house)
+second_human = Human("София", new_house)
 
 day = int(input("Введите кол-во дней: "))
 for i in range(1, day + 1):
