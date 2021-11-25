@@ -3,62 +3,102 @@ class Water:
 
     def __add__(self, other):
         if isinstance(other, Wind):
-            return "Шторм"
+            return Storm()
         if isinstance(other, Fire):
-            return "Пар"
+            return Steam()
         if isinstance(other, Earth):
-            return "Грязь"
+            return Dirt()
         if isinstance(other, Human):
-            return "Корабль"
+            return Ship()
 
 class Wind:
     name = "Ветер"
 
     def __add__(self, other):
         if isinstance(other, Water):
-            return "Шторм"
+            return Storm()
         if isinstance(other, Fire):
-            return "Молния"
+            return Lightning()
         if isinstance(other, Earth):
-            return "Пыль"
+            return Dust()
         if isinstance(other, Human):
-            return "Самолет"
+            return Airplane()
 
 class Fire:
     name = "Огонь"
 
     def __add__(self, other):
         if isinstance(other, Water):
-            return "Пар"
+            return Steam()
         if isinstance(other, Wind):
-            return "Молния"
+            return Lightning()
         if isinstance(other, Earth):
-            return "Лава"
+            return Lava()
         if isinstance(other, Human):
-            return "Двигатель"
+            return Engine()
 
 class Earth:
     name = "Земля"
 
     def __add__(self, other):
         if isinstance(other, Water):
-            return "Грязь"
+            return Dirt()
         if isinstance(other, Wind):
-            return "Пыль"
+            return Dust()
         if isinstance(other, Fire):
-            return "Лава"
+            return Lava()
         if isinstance(other, Human):
-            return "Нефть"
+            return Oil()
 
 class Human:
     name = "Человек"
 
     def __add__(self, other):
         if isinstance(other, Wind):
-            return "Самолет"
+            return Airplane()
         if isinstance(other, Fire):
-            return "Двигатель"
+            return Engine()
         if isinstance(other, Earth):
-            return "Нефть"
+            return Oil()
         if isinstance(other, Water):
-            return "Корабль"
+            return Ship()
+
+class Storm():
+    def __str__(self):
+        return "Шторм"
+
+class Steam():
+    def __str__(self):
+        return "Пар"
+
+class Dirt():
+    def __str__(self):
+        return "Грязь"
+
+class Ship():
+    def __str__(self):
+        return "Корабль"
+
+class Lightning():
+    def __str__(self):
+        return "Молния"
+
+class Dust():
+    def __str__(self):
+        return "Пыль"
+
+class Airplane():
+    def __str__(self):
+        return "Самолет"
+
+class Lava():
+    def __str__(self):
+        return "Лава"
+
+class Engine():
+    def __str__(self):
+        return "Двигатель"
+
+class Oil():
+    def __str__(self):
+        return "Нефть"
