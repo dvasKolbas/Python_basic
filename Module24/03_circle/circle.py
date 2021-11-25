@@ -20,7 +20,7 @@ class Circle:
               "  ", self.square(), " ", self.perimeter())
 
 
-class Circle_list:
+class CircleList:
 
     def __init__(self):
         self.cicles = []

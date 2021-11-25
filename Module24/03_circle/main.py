@@ -1,6 +1,6 @@
-from circle import Circle_list
+from circle import CircleList
 
-new_Circle_list = Circle_list()
-new_Circle_list.print_circles()
-new_Circle_list.increase_circles(2)
-new_Circle_list.check_intersections()
+newCircleList = CircleList()
+newCircleList.print_circles()
+newCircleList.increase_circles(2)
+newCircleList.check_intersections()
