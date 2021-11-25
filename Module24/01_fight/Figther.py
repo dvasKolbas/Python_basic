@@ -12,3 +12,6 @@ class Fighter:
             if self.health <= 0:
                 return True
 
+        def attack(self, defender):
+            defender.defend()
+

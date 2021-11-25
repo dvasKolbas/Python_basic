@@ -7,7 +7,8 @@ class Units:
     def fight(self):
         attack = random.randint(0, 1)
         defend = attack - 1
-        self.fighters[defend].defend()
+        self.fighters[attack].attack(self.fighters[defend])
+        #self.fighters[defend].defend()
         self.print(attack, defend)
 
     def print(self, attack, defend):
