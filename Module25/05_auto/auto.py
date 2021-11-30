@@ -21,12 +21,16 @@ class Bus(Automobile):
         self.money = 0
         self.passengers = 0
 
+    def change_direction(self, angle, distance):
+        super().change_direction(angle, distance)
+        self.money += distance * self.passengers
+
     def station(self):
         self.print_info()
         while True:
             try:
                 passengers = self.change_passengers()
-                self.money = 1 * self.passengers
+                # self.money = 1 * self.passengers
                 self.passengers += passengers
                 break
             except ValueError:
