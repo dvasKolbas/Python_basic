@@ -12,7 +12,16 @@ class TaskManager:
     def new_task(self, task, priority):
         if not priority in self.task.keys():
             self.task[priority] = Stack()
-        self.task[priority].push(task)
+            self.task[priority].push(task)
+        else:
+            new_stack = Stack()
+            while len(str(self.task[priority])) != 0:
+                value = self.task[priority].pop()
+                if value != task:
+                    new_stack.push(value)
+            new_stack.push(task)
+            self.task[priority] = new_stack
+
 
     def delete_task(self, priority):
         if not priority in self.task.keys():
