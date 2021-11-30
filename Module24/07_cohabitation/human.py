@@ -1,8 +1,6 @@
 import random
 
 class Human:
-
-
     def __init__(self, name, house):
         self.name = name
         self.satiety = 50
@@ -54,4 +52,3 @@ class Human:
             print(self.name, "умер,", end="")
             brk = True
         return brk
-
