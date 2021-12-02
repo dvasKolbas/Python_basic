@@ -18,6 +18,6 @@ def delete_file():
 delete_file()
 with open("files.txt", "a") as file:
     start_dir = os.path.abspath(os.path.join("..", "..", ".."))
-    desired_dir = "Module14"
+    desired_dir = input("Введите нужную папку: ")
     for file_path in find_dir(file, desired_dir, start_dir):
         file.write(file_path)
