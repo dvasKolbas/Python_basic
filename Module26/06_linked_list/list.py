@@ -1,47 +1,66 @@
-class LinkedList:
-    def __init__(self, name= None, lastValue= None):
+class Node:
+    def __init__(self, name= None, next= None):
         self.name = name
-        self.lastValue = lastValue
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
     def append(self, value):
-        if self.lastValue != None:
-            self.lastValue.append(value)
+        if self.head == None:
+            self.head = Node(value)
         else:
-            self.lastValue = LinkedList(value)
+            next = self.head
+            while next.next:
+                next = next.next
+            next.next = Node(value)
 
     def __str__(self):
-        if self.name == None:
-            return "[" + str(self.lastValue)
-        elif self.lastValue == None:
-            return str(self.name) + "]"
+        if self.head == None:
+             return "нет значений"
         else:
-            return str(self.name) + " " + str(self.lastValue)
+            next = self.head
+            string = "[" + str(next.name)
+            while next.next:
+                next = next.next
+                string +=" " + str(next.name)
+            return string + "]"
 
-    def get(self, num, count= -1):
-        try:
-            if count == num:
-                return self.name
-            elif self.lastValue == None and num > count:
-                raise StopIteration
-            else:
-                return self.lastValue.get(num, count + 1)
-        except StopIteration:
-            print("Значение выходит за пределы списка!")
 
-    def remove(self, num, count= -1):
-        try:
-            if count == num:
-                 return self.lastValue
-            elif self.lastValue == None and num > count:
-                raise StopIteration
+
+    def get(self, num):
+        if self.head == None:
+             return "нет значений"
+        else:
+            count = 0
+            next = self.head
+            while next:
+                if num == count:
+                    return next.name
+                next = next.next
+                count += 1
             else:
-                new_lastValue = self.lastValue.remove(num, count + 1)
-                if new_lastValue != None:
-                    self.lastValue = new_lastValue
-                else:
-                    return  None
-        except StopIteration:
-            print("Значение выходит за пределы списка!")
+                return "индекс за пределами списка"
+
+    def remove(self, num):
+        if self.head != None:
+            if num == 0:
+                self.head = self.head.next
+                return
+            count = 1
+            next = self.head
+            while next:
+                if num == count:
+                    if next.next.next == None:
+                        next.next = None
+                    else:
+                        next.next = next.next.next
+                    return
+                next = next.next
+                count += 1
+            else:
+                return "индекс за пределами списка"
 
 
 
