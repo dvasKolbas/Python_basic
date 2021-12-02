@@ -1,8 +1,6 @@
 import os
 
-def find_file():
-    print("Введите путь для сканирования:")
-    path = input()
+def find_file(path):
     # for elem in os.listdir(os.getcwd()):
     for elem in os.listdir(path):
         if elem.endswith(".py"):
@@ -14,6 +12,8 @@ def line_count(file_name):
             if line != "\n" and not line.startswith("#"):
                 yield 1
 
-print(sum([i for i in find_file()]))
+print("Введите путь для сканирования:")
+path = input()
+print(sum([i for i in find_file(path)]))
 
 
