@@ -1,8 +1,10 @@
 import os
 
 def find_file():
-    print(os.getcwd())
-    for elem in os.listdir(os.getcwd()):
+    print("Введите путь для сканирования:")
+    path = input()
+    # for elem in os.listdir(os.getcwd()):
+    for elem in os.listdir(path):
         if elem.endswith(".py"):
             yield sum([i for i in line_count(elem)])
 
