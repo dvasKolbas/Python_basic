@@ -7,7 +7,7 @@ def find_dir(file, desired_dir, current_dir):
             return
         elif os.path.isdir(path):
             for file_path in find_dir(file, desired_dir, path):
-                file.write(file_path + "\n") #Почему функция не переносит сама строку?
+                file.write(file_path + "\n")
         elif os.path.isfile(path):
             yield path
 
@@ -19,5 +19,7 @@ delete_file()
 with open("files.txt", "a") as file:
     start_dir = os.path.abspath(os.path.join("..", "..", ".."))
     desired_dir = input("Введите нужную папку: ")
+    # desired_dir = "Module"
+    # start_dir = os.getcwd()
     for file_path in find_dir(file, desired_dir, start_dir):
-        file.write(file_path)
+        file.write(file_path + "\n")
