@@ -2,7 +2,7 @@ from typing import Callable, Any
 
 def counter(func: Callable) -> Any:
     """
-    Декоратор вывода подсчета кол-ва вызовов функции
+    Декоратор подсчета кол-ва вызовов функции
     """
     def wrapped_func(*args, **kwargs):
         wrapped_func.count += 1
