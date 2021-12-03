@@ -11,6 +11,9 @@ def logging(func: Callable) -> Any:
     def wrapped_func(*args, **kwargs):
         with open("function_errors.log", "a") as log_file:
             try:
+                print("Название функции: {name}\n"
+                      "Описание функции:"
+                      "{description}".format(name=func.__name__, description=func.__doc__))
                 return func(*args, **kwargs)
             except Exception as exep:
                 string = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S") \
@@ -18,16 +21,33 @@ def logging(func: Callable) -> Any:
                 log_file.write(string)
     return wrapped_func
 @logging
-def first_func(lst: list):
+def first_func(lst: list) -> None:
+    """
+    Функция печати списка
+    :param lst: Список
+    :return: None
+    """
     for i in range(5):
         print(lst[i])
 
 @logging
-def second_func(fist_num, second_num):
+def second_func(fist_num: int, second_num: int) -> float:
+    """
+    Функция деления одного числа на другое
+    :param fist_num: Первое число
+    :param second_num: Второе число
+    :return: Результат
+    """
     return fist_num/second_num
 
 @logging
-def third_func(value):
+def third_func(value: Any) -> None:
+    """
+    Функция преобразования значения в integer
+    и вывода на экран
+    :param value: Значение
+    :return: None
+    """
     print(int(value))
 
 def delete_file():
