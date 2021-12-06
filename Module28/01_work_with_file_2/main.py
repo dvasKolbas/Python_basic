@@ -18,7 +18,8 @@ class OpenFile:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.file.close()
-        return True
+        if exc_type is IOError:
+            return True
 
 with OpenFile("file.txt") as file:
     text = file.read()
