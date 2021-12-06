@@ -8,7 +8,7 @@ class Figure:
     def sqr(self):
         sqr = 0
         for i in self.__parties:
-            sqr += self.__parties[i].sqr
+            sqr += i.sqr
         return sqr
 
 
