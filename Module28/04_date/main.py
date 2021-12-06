@@ -2,8 +2,15 @@ import datetime
 
 
 class Date:
+    date = None
+    def __init__(self, date):
+        self.date = date
+
+    def __str__(self):
+        return "День: {0}\t Месяц: {1}\t Год: {2}".format(self.date[0], self.date[1], self.date[2])
+
     @classmethod
-    def is_date_valid(cls, string):
+    def is_date_valid(self, string):
         try:
             date = datetime.datetime.strptime(string, "%d-%m-%Y")
             if date:
@@ -12,12 +19,13 @@ class Date:
             return False
 
     @classmethod
-    def from_string(cls, string):
-        if cls.is_date_valid(string):
+    def from_string(self, string):
+        if self.is_date_valid(string):
             date = string.split("-")
-            return "День: {0}\t Месяц: {1}\t Год: {2}".format(date[0], date[1], date[2])
+            self.date = Date(date)
+            return self.date
         else:
-            return None
+            return self.date
 
 date = Date.from_string('10-12-2077')
 print(date)
