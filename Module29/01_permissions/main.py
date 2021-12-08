@@ -7,10 +7,10 @@ def check_permission(required_permission: str, user_permissions: List[str]) -> C
                 if not required_permission in user_permissions:
                     raise PermissionError
                 else:
-                    func(*args, **kwargs)
+                    result = func(*args, **kwargs)
             except PermissionError as error:
                 print("PermissionError: У пользователя недостаточно прав, чтобы выполнить функцию {name}".format(name=func.__name__))
-            return func
+            return result
         return wrapped
     return permossion_decorator
 
