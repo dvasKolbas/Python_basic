@@ -22,6 +22,7 @@ def log_methods(date_format: str) -> Callable:
         def wrapper(*args, **kwargs) -> Callable:
             start = time()
             time_f = datetime.now().strftime(date_format)
+            print(args[0].__class__.__name__)
             print("- Запускается {name}. Дата и время запуска: {time}".format(name= func_name(func), time=time_f))
             res = func(*args, **kwargs)
             print("- Завершение {name}. Время работы: {time}".format(name= func_name(func), time=time() - start))
