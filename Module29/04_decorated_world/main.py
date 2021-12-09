@@ -3,10 +3,13 @@ from typing import Callable
 def decorator_with_args_for_any_decorator(decorator: Callable) -> Callable:
     """Декоратор для декораторов, с возможностью передавать любые переменные"""
     def wrapper_decor(*args, **kwargs):
-        print("Переданные арги и кварги в декоратор:", *args, **kwargs)
-        res = decorator(decorator)
-        return res
+        def func_decor(func: Callable) -> Callable:
+            print("Переданные арги и кварги в декоратор:", *args, **kwargs)
+            res = decorator(func)
+            return res
+        return func_decor
     return wrapper_decor
+
 
 
 @decorator_with_args_for_any_decorator
