@@ -12,3 +12,4 @@ def siple_value():
 print(siple_value())
 
 print([i for i in range(1000) if len(list(n for n in range(1, i + 1) if i % n == 0)) == 2])
+print([i for i in range(1000) if not len(list(n for n in range(2, i) if i % n == 0))])
